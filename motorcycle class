@@ -1,0 +1,21 @@
+// Motorcycle class
+public class Motorcycle extends Vehicle {
+
+    public Motorcycle(String vehicleId, String model, double baseRentalRate, boolean hasSidecar) {
+        super(vehicleId, model, baseRentalRate);
+    }
+
+    @Override
+    public double calculateRentalCost(int days) {
+        double rentalCost = getBaseRentalRate() * days;
+        if (hasSidecar) {
+            rentalCost += 15 * days;  // Additional cost for sidecar
+        }
+        return rentalCost;
+    }
+
+    @Override
+    public boolean isAvailableForRental() {
+        return isAvailable();
+    }
+}
