@@ -1,0 +1,30 @@
+ public Customer(String customerId, String name) {
+        this.customerId = customerId;
+        this.name = name;
+        this.rentedVehicles = new ArrayList<>();
+    }
+
+    public void rentVehicle(Vehicle vehicle, int days) {
+if (vehicle.isAvailableForRental()) {
+            rentedVehicles.add(vehicle);
+            vehicle.setAvailable(false);  // Mark as rented
+            System.out.println(name + " rented a " + vehicle.getModel() + " for " + days + " days.");
+        } else {
+            System.out.println(vehicle.getModel() + " is not available for rental.");
+        }
+    }
+
+    public void returnVehicle(Vehicle vehicle) {
+        if (rentedVehicles.contains(vehicle)) {
+            rentedVehicles.remove(vehicle);
+            vehicle.setAvailable(true);  // Mark as available
+            System.out.println(name + " returned a " + vehicle.getModel());
+        } else {
+            System.out.println(name + " has not rented this vehicle.");
+        }
+    }
+
+    public List<Vehicle> getRentedVehicles() {
+        return rentedVehicles;
+    }
+}
