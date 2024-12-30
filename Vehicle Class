@@ -1,0 +1,30 @@
+public void setVehicleId(String vehicleId) {
+        this.vehicleId = vehicleId;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public double getBaseRentalRate() {
+        return baseRentalRate;
+    }
+public void setBaseRentalRate(double baseRentalRate) {
+        if (baseRentalRate > 0) {
+            this.baseRentalRate = baseRentalRate;
+        } else {
+            System.out.println("Invalid rental rate.");
+        }
+    }
+
+    public boolean isAvailable() {
+        return isAvailable;
+    }
+
+    public void setAvailable(boolean available) {
+        isAvailable = available;
+    }
