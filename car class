@@ -1,0 +1,27 @@
+// car class
+public class Car extends Vehicle {
+    private boolean hasAirConditioning;
+
+    public Car(String vehicleId, String model, double baseRentalRate, boolean hasAirConditioning) {
+        super(vehicleId, model, baseRentalRate);
+        this.hasAirConditioning = hasAirConditioning;
+    }
+
+    @Override
+    public double calculateRentalCost(int days) {
+        double rentalCost = getBaseRentalRate() * days;
+if (hasAirConditioning) {
+            rentalCost += 20 * days;  // Additional cost for air conditioning
+        }
+        return rentalCost;
+    }
+
+    @Override
+    public boolean isAvailableForRental() {
+        return isAvailable();
+    }
+
+    public boolean hasAirConditioning() {
+        return hasAirConditioning;
+    }
+}
